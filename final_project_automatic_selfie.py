@@ -11,3 +11,6 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
+
+# Path to Downloads folder
+downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
