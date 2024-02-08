@@ -15,3 +15,10 @@ downloads_path = os.path.join(os.path.expanduser('~'), 'Downloads')
 cap = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 smile_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_smile.xml')
+
+# For loop
+selfie_captured = False
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
