@@ -44,3 +44,11 @@ while True:
                 selfie_path = os.path.join(downloads_path, selfie_filename)
                 cv2.imwrite(selfie_path, frame)
                 selfie_captured = True
+                
+    cv2.imshow('cam star', frame)
+    if cv2.waitKey(10) == ord('q'):
+        break
+
+# Release the capture and destroy the windows
+cap.release()
+cv2.destroyAllWindows()
