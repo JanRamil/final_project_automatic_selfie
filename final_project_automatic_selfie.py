@@ -33,3 +33,14 @@ while True:
         face_gray = gray[y:y + h, x:x + w]
         face_color = frame[y:y + h, x:x + w]
         smiles = smile_cascade.detectMultiScale(face_gray, scaleFactor=1.3, minNeighbors=5, minSize=(25, 25))
+
+        # Draw rectangles around the smiles
+        for (sx, sy, sw, sh) in smiles:
+            cv2.rectangle(face_color, (sx, sy), (sx + sw, sy + sh), (0, 255, 0), 2)
+
+            # Save selfie when a smile is detected
+            if not selfie_captured:
+                selfie_filename = 'selfie.png'
+                selfie_path = os.path.join(downloads_path, selfie_filename)
+                cv2.imwrite(selfie_path, frame)
+                selfie_captured = True
